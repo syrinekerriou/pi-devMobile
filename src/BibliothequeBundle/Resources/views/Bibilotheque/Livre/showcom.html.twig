@@ -1,0 +1,56 @@
+{% extends 'backoffice.html.twig' %}
+
+    {% block title %}Liste de Livre{% endblock %}
+
+    {% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+
+        {% if commande %}
+<div class="container">
+            <table id="livre" border="1">
+                <thead>
+                <tr>
+                    <th>id commande</th>
+                    <th>username client</th>
+                    <th>titre livre</th>
+                    <th>Action</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                {% for commande in commande %}
+                    <tr>
+                        <td>{{ commande.idcommande }}</td>
+                        <td>{{ commande.idUser }}</td>
+                        <td>{{ commande.idlivre.nomlivre }}</td>
+
+                        <td>
+                            <div class="button_cont" align="center">
+                            <a class="example_b" href="{{ path('annulercommande',{'idcommande':commande.idcommande}) }}" >annuler </a></div>
+                        </td>
+                    </tr>
+
+                {% endfor %}
+                </tbody>
+
+            </table>
+</div>
+        {% else %}
+        <div class="container">
+        <table>
+        <thead>
+            <th>aucune commande trouvée</th>
+
+            </thead>
+            </table>
+
+            </div>
+        {% endif %}
+
+</html>
+    {% endblock content %}

@@ -1,0 +1,71 @@
+{% extends 'backoffice.html.twig' %}
+
+{% block content %}
+
+
+    <html>
+    <head>
+        <title></title>
+    </head>
+
+    <div class="limiter">
+        <div class="container">
+            <div class="container">
+                <table border="1">
+                    <thead>
+                    <th>Name User</th>
+                    <th>Date de publication</th>
+                    <th>Details</th>
+                    <th>Delete</th>
+
+                    </thead>
+                    <tbody>
+                    {% for p in list  %}
+                        <tr>
+                            <td><legend>{{ p.idUser.nom  }} </legend></td>
+                            <td>{{ p.datep|date('Y-m-d') }}</td>
+
+                            <td><a href="{{ path('publication_details', { 'id': p.id }) }}"><i class="fa fa-info-circle"></i>Details</a></td>
+                            <td><a href="{{ path('publication_supp', { 'id': p.id }) }}"><i class="fa fa-minus-circle"></i>Supprimer</a></td>
+
+
+                        </tr>
+                    {% endfor %}
+
+                </table>
+
+                <div id="div_chart"></div>
+
+                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                <script type="text/javascript">
+                    {{ gc_draw(piechart, 'div_chart') }}
+                </script>
+                    </tbody>
+
+                </table>
+            </div>
+
+            <br>
+            <br>
+            <br><br><br><br><br><br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br><br><br><br><br><br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            =
+        </div>
+    </div>
+
+    </html>
+
+{% endblock content %}

@@ -1,0 +1,29 @@
+Blog_addBlog:
+    path:     /ajouter
+    defaults: { _controller: BlogBundle:Blog:addBlog }
+    methods:  [GET, POST]
+
+Blog_delete:
+    path:     /Blog/delete/{id}
+    defaults: { _controller: BlogBundle:Blog:delete }
+
+Blog_affichageF:
+    path:     /affichageF
+    defaults: { _controller: BlogBundle:Blog:affichageF }
+
+Blog_affichageB:
+    path:     /affichageB
+    defaults: { _controller: BlogBundle:Blog:affichageB }
+
+ajaxsearchr:
+    path:     /rechercherF
+    defaults: { _controller: BlogBundle:Blog:search }
+
+Blog_sort:
+    path:     /sort/{sort}
+    defaults: { _controller: BlogBundle:Blog:sort }
+    methods:  GET
+
+affichage_mobile_blog:
+    path:     /afficher
+    defaults: { _controller: BlogBundle:Blog:affichageMobile }

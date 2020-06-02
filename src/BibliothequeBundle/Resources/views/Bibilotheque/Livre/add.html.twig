@@ -1,0 +1,126 @@
+{% extends 'backoffice.html.twig' %}
+
+{% block content %}
+
+    {{ form_start(form,{attr:{'id':'myForm'}}) }}
+    <div class="container">
+    <table>
+    <tr>
+        <td>
+            {{ form_label(form.nomlivre,"Nom du livre:") }}
+        </td>
+        <td>
+            {{ form_widget(form.nomlivre,{ 'attr': {'id': 'nomlivre'} }) }}
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            {{ form_label(form.auteurlivre,"L'auteur:") }}
+        </td>
+        <td>
+            {{ form_widget(form.auteurlivre,{ 'attr': {'id': 'auteurlivre'} }) }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {{ form_label(form.datelivre,"Date de publication:") }}
+        </td>
+        <td>
+            {{ form_widget(form.datelivre,{ 'attr': {'id': 'date'} }) }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {{ form_label(form.prixlivre,"prix du livre:") }}
+        </td>
+
+        <td>
+            {{ form_widget(form.prixlivre,{ 'attr': {'id': 'prix'} }) }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {{ form_label(form.contenu,"contenu livre:") }}
+        </td>
+
+        <td>
+            {{ form_widget(form.contenu,{ 'attr': {'id': 'contenu'} }) }}
+        </td>
+    </tr>
+        <tr>
+            <td>
+                {{ form_label(form.quantitelivre,"quantite:") }}
+            </td>
+
+            <td>
+                {{ form_widget(form.quantitelivre,{ 'attr': {'id': 'quantite'} }) }}
+            </td>
+        </tr>
+     <tr>
+        <td>
+            {{ form_label(form.imageFile,"image:") }}
+        </td>
+
+        <td>
+            {{ form_widget(form.imageFile,{ 'attr': {'id': 'image'} }) }}
+        </td>
+        </tr>
+
+
+
+    </table>
+
+        <div class="button_cont" align="center">
+            <div class="button_cont" align="center"><input onclick="ajouterlivre(event)" type="submit" value="ajouter" class="example_b" href="{{ path('addlivre') }}"></div>
+    </div>
+    {{ form_end(form) }}
+  {% block javascripts %}
+
+  <script>
+          function ajouterlivre(event) {
+              event.preventDefault();
+              var nomlivre = $("#nomlivre").val();
+              var auteurlivre=$("#auteurlivre").val();
+              var date= $("#date").val();
+              var prix =$("#prix").val();
+              var contenu= $("#contenu").val();
+              var quantite= $("#quantite").val();
+              var image =$("#image").val();
+
+
+              swal({
+                  title: "Are you sure?",
+                  icon: "warning",
+                  buttons: true,
+                  dangerMode: true,
+              })
+                  .then((willDelete) => {
+                      if (willDelete) {
+
+                              if(nomlivre === '' || auteurlivre === ''|| date === '' || prix === ''|| contenu === '' || quantite === ''|| image === '')
+                              {
+                                  swal("Thank you", {
+                                      icon: "success",
+                                  });
+
+                              }
+                              else
+                              {
+                                  swal("verifiez vos champs", {
+                                      icon: "warning",
+                                  });
+                              }document.forms["myForm"].submit();
+
+                          }
+
+
+
+                  });
+
+
+          }
+      </script>
+
+{% endblock %}
+{% endblock content %}

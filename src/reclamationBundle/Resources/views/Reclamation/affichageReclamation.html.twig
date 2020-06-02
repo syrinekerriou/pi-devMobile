@@ -1,0 +1,44 @@
+{% extends 'backoffice.html.twig' %}
+{% block content %}
+
+    <div class="limiter">
+        <div class="container">
+            <div class="container">
+                <table id="livre" border="1">
+                                <thead>
+                                <th>Name User</th>
+                                <th>Titre</th>
+                                <th>Sujet</th>
+                                <th>Date</th>
+                                </thead>
+                                <tr>
+                                    {% for u in re %}
+                                    <td>
+                                        {{ u.iduser.nom }}
+                                    </td>
+                                    <td>
+                                        {{ u.nomr}}
+                                    </td>
+                                    <td>
+                                        {{ u.sujetr}}
+                                    </td>
+                                    <td>
+                                        {{ u.dater|date }}
+                                    </td>
+
+                                    <td>
+                                        <a href="{{ path('reclamation_delete', { 'id': u.idr }) }}"><i class="fa fa-plus-circle"></i> delete reclamation</a>
+                                    </td>
+
+                                </tr>
+
+                                {% endfor %}
+
+
+
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+{% endblock content %}

@@ -1,0 +1,11 @@
+one_signal_homepage:
+    path:     /admin/backoffice/onesignal
+    defaults: { _controller: OneSignalBundle:Default:index }
+
+Buyfront:
+    path:     /notif
+    defaults: { _controller: OneSignalBundle:Default:Buyfront }
+
+BuyMobile:
+    path:     /notifMobile
+    defaults: { _controller: OneSignalBundle:Default:BuyMobile }

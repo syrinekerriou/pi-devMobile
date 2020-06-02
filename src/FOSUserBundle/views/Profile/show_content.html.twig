@@ -1,0 +1,33 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title></title>
+    </head>
+
+    <body>
+    <div class="fos_user_user_show">
+        <table border="2">
+            <thead>
+            <tr>
+                <th>username</th>
+                <th>mail adress</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>{{ 'profile.show.username'|trans }}: {{ user.username }}</td>
+                <td>{{ 'profile.show.email'|trans }}: {{ user.email }}</td>
+
+            </tr>
+
+
+        </table>
+        <div class="button_cont" align="center"><a class="example_b" href="{{ path('homepage') }}" >retour</a></div>
+    </div>
+    </body>
+
+    </html>
+{% endblock content %}

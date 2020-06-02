@@ -1,0 +1,42 @@
+divers_homepage:
+    path:     /
+    defaults: { _controller: DiversBundle:Default:index }
+
+
+offre:
+    path:     /offre
+    defaults: { _controller: DiversBundle:Offre:show }
+
+offrebacktri:
+    path:     /admin/backoffice/offretri
+    defaults: { _controller: DiversBundle:Offre:showbacktri }
+
+
+
+offreback:
+    path:     /admin/backoffice/offre
+    defaults: { _controller: DiversBundle:Offre:showback }
+
+
+offreadd:
+    path:     /admin/backoffice/offre/add
+    defaults: { _controller: DiversBundle:Offre:add }
+
+
+offreedit:
+    path:     /admin/backoffice/offre/edit/{id}
+    defaults: { _controller: DiversBundle:Offre:edit }
+
+
+offredelete:
+    path:     /admin/backoffice/offre/delete/{id}
+    defaults: { _controller: DiversBundle:Offre:delete }
+
+
+showevent:
+    path:     /evenement/
+    defaults: { _controller: DiversBundle:evenement:display }
+
+ajax_search:
+    path:     /search
+    defaults: { _controller: DiversBundle:Offre:search }

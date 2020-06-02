@@ -1,0 +1,55 @@
+{% extends 'backoffice.html.twig' %}
+
+{% block content %}
+
+    {{ form_start(form) }}
+    <div class="container">
+    <table>
+        <tr>
+            <td>
+                {{ form_label(form.sujet,"Sujet:") }}
+            </td>
+            <td>
+                {{ form_widget(form.sujet) }}
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                {{ form_label(form.description,"description:") }}
+            </td>
+            <td>
+                {{ form_widget(form.description) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+              Image:
+            </td>
+            <td>
+                <input type="file" name="image">
+            </td>
+        </tr>
+
+<tr>
+    <td></td>
+  <td>  <input type="submit" value="ajouter " class="btn btn-primary py-3 px-5"></td>
+</tr>
+
+
+
+
+
+        {{ form_end(form) }}
+    </table>
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

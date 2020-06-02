@@ -1,0 +1,80 @@
+{% extends 'backoffice.html.twig' %}
+
+    {% block title %}Liste de Livre{% endblock %}
+
+    {% block content %}
+
+
+<html>
+<head>
+    <title></title>
+</head>
+
+        {% if livre %}
+        <div class="limiter">
+        <div class="container">
+            <div class="container">
+            <table id="livre" border="1">
+                <thead>
+                <tr>
+                    <th>Liste livre</th>
+                    <th>auteur livre</th>
+                    <th>Action</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                {% for livre in livre %}
+                    <tr>
+                        <td>{{ livre.nomlivre }}</td>
+                        <td>{{ livre.auteurlivre }}</td>
+                        <td>
+                            <div class="button_cont" align="center">
+                                <a class="example_b" href="{{ path('detaillivre',{'idlivre':livre.idlivre}) }}" >afficher detail</a>
+                                <a class="example_b" href="{{ path('editlivre',{'idlivre':livre.idlivre}) }}" > modifier le livre </a>
+                                <a class="example_b" href="{{ path('deletelivre',{'idlivre':livre.idlivre}) }}" >supprimer </a></div>
+
+                        </td>
+                    </tr>
+
+                {% endfor %}
+                </tbody>
+
+            </table>
+</div>
+        {% else %}
+        <div class="container">
+        <table>
+        <thead>
+            <th>aucun Livre trouvée</th>
+            <th><a class="example_b" href="{{ path('addlivre') }}">Ajouter un Livre</a></th>
+            </thead>
+            </table>
+
+            </div>
+        {% endif %}
+        <br>
+        <br>
+        <br><br><br><br><br><br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+          <br><br><br><br><br><br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+           <div class="navigation">
+                        {{ knp_pagination_render(livre) }}
+                    </div>
+                    </div>
+                    </div>
+
+</html>
+    {% endblock content %}

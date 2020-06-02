@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title></title>
+        <!--===============================================================================================-->
+        <link rel="icon" type="image/png" href="{{ asset('acss/images/icons/favicon.ico') }}"/>
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ asset('acss/vendor/bootstrap/css/bootstrap.min.css') }}">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ asset('acss/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ asset('acss/vendor/animate/animate.css') }}">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ asset('accs/vendor/select2/select2.min.css') }}">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ asset('acss/vendor/perfect-scrollbar/perfect-scrollbar.css') }}">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ asset('acss/css/util.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('acss/css/main.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{asset('front/assets/css/main.css')}}">
+    </head>
+
+    <body>
+<center>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
+        <div class="content-wrapper">
+            <figure>
+
+
+                <a href="{{ path('detaillivrefront',{'idlivre':livre.idlivre}) }}"><td><img class="img-fluid" src="{{ asset('uploads/images/') }}{{ livre.imageName }}"  height="350" width="280"></td></a>
+            </figure>
+            <div class="feature-content">
+                <h4>Titre:{{ livre.nomlivre }}</h4>
+
+                <div class="meta-tag">
+
+                    <div class="listing-category">
+                        <br>
+                        <i class="lni-alarm-clock"></i><h5>publié le:{{ livre.datelivre|date() }}</h5>
+                    </div>
+                    <div class="listing-category">
+                        <br>
+                        <i class=""></i><h5>prix: {{ livre.prixlivre  }} dt</h5> </a>
+                    </div>
+                    <div class="listing-category">
+                        <br>
+                        <i class=""></i><h5>Description: {{ livre.contenu  }} </h5> </a>
+
+                    </div>
+                    <div class="listing-category">
+                        <br>
+                        <i class=""></i><h6>quantite restante: {{ livre.quantitelivre  }}  </h6></a>
+                        <br>
+                    </div>
+
+                </div>
+            </div>
+            <div class="listing-bottom clearfix">
+                <div class="btn-group">
+            {% if livre.quantitelivre > 0 %}
+                    <a href=" {{ path('commenderlivre',{'idlivre':livre.idlivre}) }}">
+                    <button type="button" class="btn py-2 px-3 btn-primary d-flex align-items-center justify-content-center">commender</button></a>
+
+            {% endif %}
+               {% if livre.quantitelivre == 0 %}
+                  stock epuisée
+               {% endif %}
+                </div>
+            </div>
+            <br>
+
+        </div>
+    </div>
+</center>
+
+                </table>
+                <div class="button_cont" align="center"><a class="example_b" href="{{ path('frontshowlivre') }}" ><button type="button" class="btn py-2 px-3 btn-primary d-flex align-items-center justify-content-center">retour</button></a></div>
+            </div>
+        </div>
+        <br><br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br><br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br><br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </body>
+
+
+
+</html>
+{% endblock content %}
+

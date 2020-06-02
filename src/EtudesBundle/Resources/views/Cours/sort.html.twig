@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+
+   {% block content %}
+       <div class="limiter" >
+       <div class="container">
+       <div class="centrer" >
+           <select onChange="window.location.href=this.value">
+               <option></option>
+               <option value="{{ path('triCours',{'sort':'ASC'}) }}">Tier par titre (ascendant)</option>
+               <option value="{{ path('triCours',{'sort':'DESC'}) }}">Tier par titre (descendant)</option>
+           </select>
+
+       </div>
+       <div class="container" align="center">
+           <section class="ftco-section">
+               <div class="container-fluid px-4">
+                   <div class="row ">
+                       {% for Cours in Cours %}
+                           <div class="col-md-4 course ftco-animate" >
+
+                               <a>
+                                   <img class="img-fluid" src="{{ asset('Uploads/CoursImage/') }}{{ Cours.imageName }}" ></a>
+                               <div class="text pt-4" align="center">
+                                   <p class="meta d-flex">
+                                       <span><i class="icon-money"></i>{{ Cours.titreCours  }} </span>
+                                       <span><i class="icon-calendar mr-2"></i>{{ Cours.matiere }}</span>
+                                   <h3>   <a href="{{ asset('Uploads/CoursPDF/') }}{{ Cours.PDFName }}" class="btn btn btn-success"><span><i class="icon-next"></i>Voir le PDF</span></a></h3>
+
+                                   </p>
+
+                               </div>
+                           </div>
+                       {% endfor %}
+                   </div>
+               </div>
+           </section>
+       </div>
+
+
+
+
+
+
+   {% endblock %}

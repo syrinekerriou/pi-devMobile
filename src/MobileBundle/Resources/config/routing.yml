@@ -1,0 +1,93 @@
+show_livre:
+    path:     /showlivre
+    defaults: { _controller: MobileBundle:Bibliotheque:showLivre }
+
+commender_livre:
+    path:     /commender
+    defaults: { _controller: MobileBundle:Bibliotheque:Commender }
+
+show_com:
+    path:     /showcom
+    defaults: { _controller: MobileBundle:Bibliotheque:showCommande }
+
+delete_com:
+    path:     /deletecom
+    defaults: { _controller: MobileBundle:Bibliotheque:deleteCom }
+
+livrer_commende:
+    path:     /livrer
+    defaults: { _controller: MobileBundle:Bibliotheque:Livrer }
+
+register:
+    path:     /register
+    defaults: { _controller: MobileBundle:User:inscription }
+
+show_livredetails:
+    path:     /showlivredetails
+    defaults: { _controller: MobileBundle:Bibliotheque:showLivreDetails }
+
+searchlivre:
+    path:     /searchLivre
+    defaults: { _controller: MobileBundle:Bibliotheque:showLivreDetails }
+
+login:
+    path:     /login/{username}/{password}
+    defaults: { _controller: MobileBundle:User:login }
+
+findAll:
+    path:     /findall
+    defaults: { _controller: MobileBundle:User:findall }
+
+show_profile:
+    path:     /showprofile
+    defaults: { _controller: MobileBundle:Bibliotheque:showprofile }
+
+update_mdp:
+    path:     /updatemdp
+    defaults: { _controller: MobileBundle:User:updatemdp }
+
+addbook:
+    path:     /addbook
+    defaults: { _controller: MobileBundle:Bibliotheque:addbook }
+
+
+
+
+
+
+
+show_Event:
+    path:     /showevent
+    defaults: { _controller: MobileBundle:Divers:showEvent }
+
+show_Offre:
+    path:     /showoffre
+    defaults: { _controller: MobileBundle:Divers:showOffre }
+
+participer:
+    path:     /participer
+    defaults: { _controller: MobileBundle:Divers:participer }
+
+
+
+
+
+show_Service:
+    path:     /showservice
+    defaults: { _controller: MobileBundle:Service:showService }
+
+add_attestation:
+    path:     /addAttestation
+    defaults: { _controller: MobileBundle:Attestation:addAttestation}
+
+add_Reclamation:
+    path:     /addReclamation
+    defaults: { _controller: MobileBundle:Reclamation:addReclamation}
+
+add_Service:
+    path:     /addService
+    defaults: { _controller: MobileBundle:Service:addService}
+
+show_attestaion:
+    path:     /showatt
+    defaults: { _controller: MobileBundle:Attestation:showAttestation }

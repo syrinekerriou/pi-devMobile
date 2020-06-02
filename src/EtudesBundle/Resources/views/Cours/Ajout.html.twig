@@ -1,0 +1,31 @@
+{% extends 'backoffice.html.twig' %}
+
+{% block title %}EtudesBundle:index{% endblock %}
+
+{% block content %}
+    <h1>Ajout d'un cours</h1>
+    <div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card ">
+                    <div class="card-header ">
+                        <h4 class="card-title">Formulaire d'ajout :</h4>
+                    </div>
+                    {{ form_start(Form) }}
+
+
+
+
+                    <button type="submit">Ajouter</button>
+
+                    {{ form_end(Form) }}
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock content %}

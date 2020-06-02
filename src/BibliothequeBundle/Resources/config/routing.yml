@@ -1,0 +1,90 @@
+my_homepage:
+    path:     /
+    defaults: { _controller: MyBundle:Default:index }
+
+addlivre:
+    path:     /admin/backoffice/addlivre
+    defaults: { _controller: BibliothequeBundle:Livre:add }
+
+editlivre:
+    path:     /admin/backoffice/editlivre/{idlivre}
+    defaults: { _controller: BibliothequeBundle:Livre:edit }
+
+deletelivre:
+    path:     /admin/backoffice/deletelivre/{idlivre}
+    defaults: { _controller: BibliothequeBundle:Livre:delete }
+
+showlivre:
+    path:     /admin/backoffice/showlivre
+    defaults: { _controller: BibliothequeBundle:Livre:show }
+
+frontshowlivre:
+    path:     /frontshowlivre
+    defaults: { _controller: BibliothequeBundle:Livre:frontshow }
+
+detaillivre:
+    path:     /admin/backoffice/showlivre/{idlivre}
+    defaults: { _controller: BibliothequeBundle:Livre:detail }
+
+detaillivrefront:
+    path:     /showlivrefront/{idlivre}
+    defaults: { _controller: BibliothequeBundle:Livre:detaillivre }
+
+supprimerlivre:
+    path:     /admin/backoffice/supprimerlivre
+    defaults: { _controller: BibliothequeBundle:Livre:supprimer }
+
+commenderlivre:
+    path:     /commenderlivre/{idlivre}
+    defaults: { _controller: BibliothequeBundle:commande:commender }
+
+annulercommande:
+    path:     /admin/backoffice/annulercommande/{idcommande}
+    defaults: { _controller: BibliothequeBundle:commande:annuler }
+
+annulerfrontcommande:
+    path:     /annulercomcommande/{idcommande}
+    defaults: { _controller: BibliothequeBundle:commande:annulerfront }
+
+backshowcommande:
+    path:     /admin/backoffice/backshowcommande
+    defaults: { _controller: BibliothequeBundle:commande:backshowcommande }
+
+annulerliv:
+    path:     /admin/backoffice/annulerlivraisoncommande/{idlivraison}
+    defaults: { _controller: BibliothequeBundle:Livraison:annulerliv }
+
+showlivraison:
+    path:     /admin/backoffice/showlivraison
+    defaults: { _controller: BibliothequeBundle:Livraison:showlivraison }
+
+maplivraison:
+    path:     /map
+    defaults: { _controller: BibliothequeBundle:Map:map }
+
+Livre_sort:
+    path:     /sort/{sort}
+    defaults: { _controller: BibliothequeBundle:Livre:sort }
+    methods:  GET
+
+ajaxsearch:
+    path:     /rechercherlivre
+    defaults: { _controller: BibliothequeBundle:Livre:search }
+
+mycommand:
+    path:     /mycommand
+    defaults: { _controller: BibliothequeBundle:commande:mycommande }
+
+charge:
+    path:     /charge
+    defaults: { _controller: BibliothequeBundle:Livre:charge }
+
+payment:
+    path:     /payment/{idcommande}
+    defaults: { _controller: BibliothequeBundle:commande:payment }
+    methods:  [GET]
+
+livrer:
+    path:     /livrercommande/{idcommande}
+    defaults: { _controller: BibliothequeBundle:Livraison:livrer }
+    methods:  [GET]

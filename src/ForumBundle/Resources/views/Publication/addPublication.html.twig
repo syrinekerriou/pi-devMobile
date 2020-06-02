@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({{ asset('template-Front/images/bg_1.jpg') }});">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-center">
+                <div class="col-md-9 ftco-animate text-center">
+                    <h1 class="mb-2 bread">Ingen School Forum</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="http://localhost/pi-dev/web/app_dev.php/"> <i class=""></i></a></span>
+                    <span class=""><a href="index.html"> <i class=""></i></a></span> <span> <i class=""></i></span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div style="margin-left: 300px;width: 500px">
+{{ form_start(form) }}
+        <br>
+        <br>
+        Sujet:
+        {{ form_widget(form.typep,{'attr': {'class': "ckeditor",'placeholder': "veuillez saisir votre Sujet de la Publication",'required':"true" ,'cols':'50','rows':'10'}}) }}
+        <br>
+        Description:
+        {{ form_widget(form.descriptionp,{'attr': {'class': "ckeditor",'placeholder': "veuillez saisir votre Publication",'required':"true" ,'cols':'50','rows':'10'}}) }}
+        <br>
+
+        Image:<input type="file" name="image" />
+
+        <br>
+        <br>
+        <div class="form-group">
+            <input type="submit" value="publier" class="btn btn-primary py-3 px-5">
+        </div>
+{{ form_end(form) }}
+        <br>
+        <br>
+        <br>
+        <br>
+
+{% for p in list  %}
+
+<fieldset  style="margin-bottom: 10px">
+    <legend>{{ p.idUser.nom  }} </legend>
+    <p>{{ p.typep }}</p>
+    <p>{{ p.datep|date }}</p>
+<p>
+    <img src="{{ asset('images/')~p.image }}" width="400">
+</p>
+    <p>{{ p.descriptionp }}</p>
+    {% if p.idUser == u %}
+    <a href="{{ path('publication_delete', { 'id': p.id }) }}"><i class="fa fa-plus-circle"></i> delete Publication</a>
+
+    {% endif %}
+
+    <br>
+    <br>
+
+        <form method="POST" name="formulaire">
+        <textarea name="description"></textarea>
+            <br>
+            <br>
+        <input type="text" value="{{ p.id }}" name="id1" hidden>
+            <input type="submit" value="comment" class="btn btn-primary py-3 px-5">
+        </form>
+    <br>
+    <br>
+    <br>
+    <br>
+        {% for c in list1 %}
+    {% if c.idPublication == p.id %}
+    <fieldset style="margin-bottom: 0px">
+        <legend>{{ c.iduser.nom }}</legend>
+        <p>{{ c.datec|date }}</p>
+        <p>{{ c.descriptionc }}</p>
+        {% if c.iduser == u %}
+            <a href="{{ path('commentaire_delete', { 'id': c.idc }) }}"><i class="fa fa-plus-circle"></i> delete your comment</a>
+        {% endif %}
+    </fieldset>
+
+    {% endif %}
+    {% endfor %}
+</fieldset>
+
+
+
+{% endfor %}
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endblock content %}

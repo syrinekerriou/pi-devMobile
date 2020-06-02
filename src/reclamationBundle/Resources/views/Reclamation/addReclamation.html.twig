@@ -1,0 +1,46 @@
+
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({{ asset('template-Front/images/bg_1.jpg') }});">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-center">
+                <div class="col-md-9 ftco-animate text-center">
+                    <h1 class="mb-2 bread">Ingen School Reclamation</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="http://localhost/pi-dev/web/app_dev.php/"> <i class=""></i></a></span>
+                        <span class=""><a href="index.html"> <i class=""></i></a></span> <span> <i class=""></i></span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section ftco-no-pt ftco-no-pb contact-section">
+        <div class="container">
+            <div class="row d-flex align-items-stretch no-gutters">
+                <div class="col-md-6 p-4 p-md-5 order-md-last bg-light">
+                    {{ form_start(form) }}
+                    <div><h1>Réclamation</h1></div>
+                    <div class="form-group" >
+                        Titre:
+                        {{ form_widget(form.nomr,{'attr': {'class': "ckeditor",'placeholder': "Titre",'required':"true",'cols':'30'}}) }}
+                    </div>
+                    <div class="form-group">
+                        Sujet:
+                        {{ form_widget(form.sujetr,{'attr': {'class': "ckeditor",'placeholder': "Sujet",'required':"true",'cols':'30','rows':'7'}}) }}
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Send " class="btn btn-primary py-3 px-5">
+                    </div>
+
+
+
+                    {{ form_end(form) }}
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}

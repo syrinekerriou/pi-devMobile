@@ -1,0 +1,63 @@
+{% extends 'backoffice.html.twig' %}
+{% block content %}
+    <h1>Gestion des formations</h1>
+
+
+
+
+<div>
+                        <h4 class="card-title">Les Formations disponnibles :</h4>
+</div>
+
+
+
+
+
+<div>
+
+
+
+                                <table border="3">
+                                    <tr>
+
+                                        <th>Nom</th>
+                                        <th>Durée</th>
+                                        <th>prix</th>
+                                        <th>Matière</th>
+
+
+                                    </tr>
+
+
+                                    {%  for Formation in Formation %}
+                                        <tr>
+
+                                            <td>{{ Formation.nomFormation }}</td>
+                                            <td>{{ Formation.duree }}</td>
+                                            <td>{{ Formation.prix }}</td>
+                                            <td>{{ Formation.matiere }}</td>
+
+                                            <td>
+
+                                                <a href="{{ path('modifierformation',{'id': Formation.id }) }}" >Modifier</a>
+
+                                            </td>
+                                            <td>
+                                                <a href="{{ path('supprimerformation',{'qdt': Formation.id }) }}" >Supprimer</a>
+
+
+                                            </td>
+
+                                        </tr>
+                                    {% endfor %}
+                                </table>
+</div>
+    <div>
+                                <h4>
+                                    <button class="nav-item"><a href="{{ path('ajoutformation') }}" >Ajouter une autre formation</a></button>
+                                </h4>
+
+                            </div>
+
+
+{% endblock content %}

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({{ asset('template-Front/images/bg_1.jpg') }});">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-center">
+                <div class="col-md-9 ftco-animate text-center">
+                    <h1 class="mb-2 bread">Ingen School Chat</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="http://localhost/pi-dev/web/app_dev.php/"> <i class=""></i></a></span>
+                        <span class=""><a href="index.html"> <i class=""></i></a></span> <span> <i class=""></i></span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+<html lang="en">
+<br>
+<div class="container">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset={{ _charset }}" />
+        <title>{% trans from 'FOSMessageBundle' %}messenger{% endtrans %}</title>
+    </head>
+
+    <body>
+
+        <h1>{% trans from 'FOSMessageBundle' %}messenger{% endtrans %}</h1>
+
+        <ul>
+            <li><a href="{{ url('fos_message_inbox') }}">{% trans from 'FOSMessageBundle' %}inbox{% endtrans %}</a></li>
+            <li><a href="{{ url('fos_message_sent') }}">{% trans from 'FOSMessageBundle' %}sent{% endtrans %}</a></li>
+            <li><a href="{{ url('fos_message_deleted') }}">{% trans from 'FOSMessageBundle' %}deleted{% endtrans %}</a></li>
+        </ul>
+
+        {% block fos_message_content %}{% endblock %}
+
+    </body>
+</div>
+<br>
+</html>
+{% endblock %}
+

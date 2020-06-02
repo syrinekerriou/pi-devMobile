@@ -1,0 +1,37 @@
+{% extends 'backoffice.html.twig' %}
+
+{% block title %}EtudesBundle:index{% endblock %}
+
+{% block content %}
+    <h1>Gestion des etudes</h1>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card ">
+                        <div class="card-header ">
+                            <h4 class="card-title">Vos options :</h4>
+                        </div>
+                        <div class="card-body ">
+                            <div class="content">
+                                <div class="container-fluid">
+                                    <button class="nav-item"><a href="{{ path('affichagecoursadmin') }}" class="nav-link">Gestion des cours</a></button>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body ">
+                            <div class="content">
+                                <div class="container-fluid">
+
+                                    <button class="nav-item"><a href="{{ path('affichageformationadmin') }}" class="nav-link">Gestion des formations</a></button>                                </div>
+                            </div>
+                        </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,56 @@
+publication_addPublication:
+    path:     /
+    defaults: { _controller: ForumBundle:Forum:addPublication }
+    methods:  [GET, POST]
+publication_delete:
+    path:     /delete/{id}
+    defaults: { _controller: ForumBundle:Forum:delete }
+
+commentaire_delete:
+    path:     /delete1/{id}
+    defaults: { _controller: ForumBundle:Forum:deleteComment }
+
+publication_supp:
+    path:     /supp/{id}
+    defaults: { _controller: ForumBundle:Forum:supp }
+
+commentaire_supp:
+    path:     /supp1/{id}
+    defaults: { _controller: ForumBundle:Forum:suppComment }
+
+publication_affiche:
+    path:     /affiche
+    defaults: { _controller: ForumBundle:Forum:affiche }
+
+publication_details:
+    path:     /details/{id}
+    defaults: { _controller: ForumBundle:Forum:details }
+
+publication_chart:
+    path:   /chart
+    defaults: {_controller: ForumBundle:Forum:chart }
+
+supp_pub_mobile:
+    path:   /supprimerPubMobile
+    defaults: {_controller: ForumBundle:Forum:SupprimerPubMobile }
+
+supp_com_mobile:
+    path:   /supprimerComMobile
+    defaults: {_controller: ForumBundle:Forum:SupprimerComMobile }
+
+ajout_pub_mobile:
+    path:   /ajouterPubMobile
+    defaults: {_controller: ForumBundle:Forum:AjouterPubMobile }
+
+ajout_com_mobile:
+    path:   /ajouterComMobile
+    defaults: {_controller: ForumBundle:Forum:AjouterComMobile }
+
+
+afficher_com_pub_mobile:
+    path:   /affichercp
+    defaults: {_controller: ForumBundle:Forum:AfficherComPubMobile }
+
+afficher_pub_mobile:
+    path:   /afficherp
+    defaults: {_controller: ForumBundle:Forum:AfficherPubMobile }

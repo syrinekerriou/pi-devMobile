@@ -1,0 +1,140 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <section class="hero-wrap hero-wrap-2" href="{{ asset('images/books.jpg') }}">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-center">
+                <div class="col-md-9 ftco-animate text-center fadeInUp ftco-animated">
+                    <h1 class="mb-2 bread">Ingen School Bibliothéques</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+            <div class="limiter">
+        <div class="container">
+<h2 class="section-title">Search for a Book !!</h2>
+            <div class="container">
+                <form class="w-search">
+                    <div class="sidebar-search">
+
+                        <div class="input-group custom-search-form">
+
+                            <input type="text" id="search" class="form-control pl-3" placeholder="Search here">
+                        </div>
+                        <!-- /input-group -->
+                    </div>
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="#"><span class="fa arrow"></span></a>
+                            <ul style="background-color: #0b0b0b" class="nav " id="entitiesNav">
+                            </ul>
+                        </li>
+                    </ul>
+
+
+
+                </form>
+
+
+            <br>
+                <a class="btn btn-primary btn-lg"  href="{{ path('Livre_sort',{'sort':'ASC'}) }}">Sort By price ASCENDING</a>
+                <a class="btn btn-primary btn-lg" href="{{ path('Livre_sort',{'sort':'DESC'}) }}">Sort By price DESCENDING</a>
+                {% for livre in livre %}
+                <div class="container col-5 col-md5" style="text-align: center">
+                    <div class="col-5" >
+                      <div>
+                          <h4><a href="{{ path('detaillivrefront',{'idlivre':livre.idlivre}) }}">{{ livre.nomlivre }}</a></h4>
+                          <a href="{{ path('detaillivrefront',{'idlivre':livre.idlivre}) }}">
+                              <img class="img-fluid" src="{{ asset('uploads/images/') }}{{ livre.imageName }}"  height="500" width="300">
+                          </a>
+
+
+
+                                <a href="#"><i class="lni-alarm-clock"></i>{{ livre.datelivre|date() }}</a>
+
+
+                                <a href="#"><i class=""></i>{{ livre.prixlivre  }} mil </a>
+                            </div>
+
+
+                            <a href="{{ path('detaillivrefront',{'idlivre':livre.idlivre}) }}"><button type="button" class="btn py-2 px-3 btn-primary d-flex align-items-center justify-content-center">details</button></a>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+        </div>
+
+
+
+                    <div class="navigation">
+                        {{ knp_pagination_render(livre) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="button_cont"><a class="example_b" href="{{ path('homepage') }}" >retour</a></div>
+
+
+    <!--===============================================================================================-->
+    <script src="{{ asset('acss/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+    <!--===============================================================================================-->
+    <script src="{{ asset('acss/vendor/bootstrap/js/popper.js') }}"></script>
+    <script src="{{ asset('acss/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <!--===============================================================================================-->
+    <script src="{{ asset('acss/vendor/select2/select2.min.js') }}"></script>
+    <!--===============================================================================================-->
+    <script src="{{ asset('acss/js/main.js') }}"></script>
+
+
+    <script src="{{ asset('JS/jquery.js') }}"></script>
+    <script>
+        jQuery(document).ready(function() {
+            var searchRequest = null;
+            $("#search").keyup(function() {
+                var minlength = 1;
+                var that = this;
+                var value = $(this).val();
+
+                var entitySelector = $("#entitiesNav").html('');
+                if (value.length >= minlength ) {
+                    if (searchRequest != null)
+                        searchRequest.abort();
+                    searchRequest = $.ajax({
+                        type: "GET",
+                        url: "{{ path('ajaxsearch') }}",
+                        data: {
+                            'q' : value
+
+                        },
+                        dataType: "text",
+                        success: function(msg){
+                            //we need to check if the value is the same
+                            if (value===$(that).val()) {
+                                var result = JSON.parse(msg);
+                                $.each(result, function(key, arr) {
+                                    $.each(arr, function(id, value) {
+                                        if (key === 'livre') {
+                                            if (id !== 'error') {
+                                                console.log(value);
+                                                entitySelector.append('<li>' +
+                                                    'Titre:<a href="http://localhost/pi-dev/web/app_dev.php/showlivrefront/'+id+'">' + '<h5><b>  '+value[0]+  '</b></h5></a>'+'<a href="http://localhost/pi-dev/web/app_dev.php/showlivrefront/'+id+'"> <img src="http://localhost/pi-dev/web/uploads/images/'+value[5]+'" height="150" width="130"> </a> </li>')   ;
+                                            } else {
+                                                entitySelector.append('<li class="errorLi">'+value+'</li>');
+                                            }
+                                        }
+                                    });
+                                });
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+
+
+{% endblock content %}
+

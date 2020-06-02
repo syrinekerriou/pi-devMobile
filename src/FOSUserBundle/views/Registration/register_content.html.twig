@@ -1,0 +1,122 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12"></div>
+        <div class="col-sm-12">
+            <div class="register_section" style="
+    margin-right: 90px;">
+                <!-- register_form_wrapper -->
+                <div class="register_tab_wrapper" style="margin-left: -600px;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-md-offset-1">
+                                <div role="tabpanel">
+
+                                    <!-- Nav tabs -->
+                                    <ul id="tabOne" class="nav register-tabs">
+                                        <li class="active"><a href="#contentOne-1" data-toggle="tab" aria-expanded="true">compte etudiant <br> <span>i want to study</span></a>
+                                        </li>
+                                        <li class=""><a href="#contentOne-2" data-toggle="tab" aria-expanded="false">compte professeur <br> <span>i want to teach</span></a>
+                                        </li>
+                                    </ul>
+
+                                    <!-- Tab panes -->
+
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade register_left_form active in" id="contentOne-1">
+                                            {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+
+                                            <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                                {{ form_widget(form.username, { 'attr': {'class': "span12",
+                                                    'placeholder': "Username*"} } ) }}
+                                            </div>
+                                            <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                                {{ form_widget(form.nom, { 'attr': {'class': "span12",
+                                                    'placeholder': "Fisrt name*"} } ) }}
+                                            </div>
+                                            <div class="form-group col-md-6 col-sm-6 col-xs-12">
+
+                                                {{ form_widget(form.prenom, { 'attr': {'class': "span12",
+                                                    'placeholder': "Last name*"} }) }}
+                                            </div>
+                                            <!--Form Group-->
+                                            <div class="form-group col-md-6 col-sm-6 col-xs-12">
+
+                                                {{ form_widget(form.email, { 'attr': {'class': "span12",
+                                                    'placeholder': "Email*"} }) }}
+                                            </div>
+                                            <!--Form Group-->
+                                            <div class="form-group col-md-6 col-sm-6 col-xs-12">
+
+                                                {{ form_widget(form.password, { 'attr': {'class': "span12",
+                                                    'placeholder': "Password*"} }) }}
+                                            </div>
+                                            <!--Form Group-->
+                                            <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                                {{ form_widget(form.plainPassword, { 'attr': {'class': "span12",
+                                                    'placeholder': "Re-Enter Password*"} }) }}
+                                            </div>
+
+                                            <!--Form Group-->
+                                            <div class="form-group col-md-6 col-sm-6 col-xs-12">
+
+                                                {{ form_widget(form.section, { 'attr': {'class': "span12",
+                                                    'placeholder': "section*"} }) }}
+
+                                            </div>
+                                            <div class="form-group col-md-6 col-sm-6 col-xs-12">
+
+                                                {{ form_widget(form.formation, { 'attr': {'class': "span12",
+                                                    'placeholder': "section*"} }) }}
+
+                                            </div>
+                                            <!--Form Group-->
+
+
+                                        <div class="tab-pane fade register_left_form" id="contentOne-2">
+                                            {{ form_start(form2, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+
+                                            <div class="jp_regiter_top_heading">
+
+                                            </div>
+                                            <div class="row clearfix">
+                                                <!--Form Group-->
+                                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                                    {{ form_widget(form2.username, { 'attr': {'class': "span12",
+                                                        'placeholder': "Username*"} } ) }}
+                                                </div>
+
+                                                <!--Form Group-->
+                                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+
+                                                    {{ form_widget(form2.email, { 'attr': {'class': "span12",
+                                                        'placeholder': "Email*"} }) }}
+                                                </div>
+                                                <!--Form Group-->
+
+                                                <!--Form Group-->
+
+
+                                                <div class="login_btn_wrapper register_btn_wrapper login_wrapper ">
+                                                    <center><input size="30" style="width:600px;" type="submit" class="btn btn-primary" value="{{ 'registration.submit'|trans }}" />
+                                                    </center>
+                                                </div>
+                                                {{ form_end(form2) }}
+                                                <div class="login_message">
+                                                    <p>Already a member? <a href="#"> Login Here </a> </p>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <p class="btm_txt_register_form">In case you are using a public/shared computer we recommend that you logout to prevent any un-authorized access to your account</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

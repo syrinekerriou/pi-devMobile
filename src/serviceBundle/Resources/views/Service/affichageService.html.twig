@@ -1,0 +1,52 @@
+{% extends 'backoffice.html.twig' %}
+{% block content %}
+    <div class="limiter">
+        <div class="container">
+            <div class="container">
+                <table id="livre" border="1">
+                    <thead>
+                    <th>Name Etudiant</th>
+                    <th>specialite</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>type</th>
+                    <th>langue</th>
+
+                    </thead>
+
+                    <tr>
+                        {% for u in re %}
+                        <td>
+                            {{ u.iduser.nom }}
+                        </td>
+                        <td>
+                            {{ u.iduser.specialite}}
+                        </td>
+                        <td>
+                            {{ u.description}}
+                        </td>
+                        <td>
+                            {{ u.date|date }}
+                        </td>
+                        <td>
+                            {{ u.ida.typea}}
+                        </td>
+                        <td>
+                            {{ u.ida.langue}}
+                        </td>
+
+                        <td>
+                            <a href="{{ path('service_delete', { 'id': u.ids }) }}"><i class="fa fa-plus-circle"></i> delete demande</a>
+                        </td>
+                        <td>
+                            <a href="{{ path('service_delete', { 'id': u.ids }) }}"><i class="fa fa-plus-circle"></i> repondre demande</a>
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

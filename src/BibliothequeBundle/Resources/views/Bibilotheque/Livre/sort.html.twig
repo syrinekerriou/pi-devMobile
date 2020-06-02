@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title></title>
+        <!--===============================================================================================-->
+        <link rel="icon" type="image/png" href="{{ asset('acss/images/icons/favicon.ico') }}"/>
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ asset('acss/vendor/bootstrap/css/bootstrap.min.css') }}">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ asset('acss/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ asset('acss/vendor/animate/animate.css') }}">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ asset('accs/vendor/select2/select2.min.css') }}">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ asset('acss/vendor/perfect-scrollbar/perfect-scrollbar.css') }}">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ asset('acss/css/util.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('acss/css/main.css') }}">
+        <!--===============================================================================================-->
+    </head>
+
+    <body>
+    <div class="limiter">
+        <div class="container">
+            <div class="wrap-table100">
+                <div class="table100">
+
+                    <table>
+                        <thead>
+                        <tr class="table100-head">
+
+                            <th class="column1">titre du livre</th>
+                            <th class="column2">auteur</th>
+                            <th class="column3">date publication</th>
+                            <th class="column3">prix</th>
+                            <th>action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for livre in livre %}
+                            <tr>
+
+                                <td>{{ livre.nomlivre }}</td>
+                                <td>{{ livre.auteurlivre }}</td>
+                                <td>{{ livre.datelivre|date('Y-m-d') }}</td>
+                                <td>{{ livre.prixlivre }} mil</td>
+                                <td>  <a href="{{ path('commenderlivre',{'idlivre':livre.idlivre}) }}" class="btn py-2 px-3 btn-primary d-flex align-items-center justify-content-center">
+                                        <span>Buy Now</span>
+                                    </a></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <a class="btn btn-primary btn-lg"  href="{{ path('Livre_sort',{'sort':'ASC'}) }}">Sort By price ASCENDING</a>
+                    <a class="btn btn-primary btn-lg" href="{{ path('Livre_sort',{'sort':'DESC'}) }}">Sort By price DESCENDING</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="button_cont" align="center"><a class="example_b" href="{{ path('homepage') }}" >retour</a></div>
+    </div>
+    <!--===============================================================================================-->
+    <script src="{{ asset('acss/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+    <!--===============================================================================================-->
+    <script src="{{ asset('acss/vendor/bootstrap/js/popper.js') }}"></script>
+    <script src="{{ asset('acss/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <!--===============================================================================================-->
+    <script src="{{ asset('acss/vendor/select2/select2.min.js') }}"></script>
+    <!--===============================================================================================-->
+    <script src="{{ asset('acss/js/main.js') }}"></script>
+    </body>
+
+    </html>
+{% endblock content %}
+

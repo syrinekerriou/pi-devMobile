@@ -1,0 +1,63 @@
+mobile:
+    resource: "@MobileBundle/Resources/config/routing.yml"
+    prefix:   /mobile
+
+forum:
+    resource: "@ForumBundle/Resources/config/routing.yml"
+    prefix:   /forum
+
+blog:
+    resource: "@BlogBundle/Resources/config/routing.yml"
+    prefix:   /blog
+
+one_signal:
+    resource: "@OneSignalBundle/Resources/config/routing.yml"
+    prefix:   /one
+
+divers:
+    resource: "@DiversBundle/Resources/config/routing.yml"
+    prefix:   /divers
+
+etudes:
+    resource: "@EtudesBundle/Resources/config/routing.yml"
+    prefix:   /etudes
+
+
+reclamation:
+    resource: "@reclamationBundle/Resources/config/routing.yml"
+    prefix:   /reclamation
+
+attestation:
+    resource: "@attestationBundle/Resources/config/routing.yml"
+    prefix:   /attestation
+
+service:
+    resource: "@serviceBundle/Resources/config/routing.yml"
+    prefix:   /service
+
+bibliotheque:
+    resource: "@BibliothequeBundle/Resources/config/routing.yml"
+    prefix:   /bibliotheque
+
+my:
+    resource: "@MyBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+mgilet_notification:
+    resource: "@MgiletNotificationBundle/Controller/"
+    prefix: /notifications
+
+my_evenement:
+    resource: "@DiversBundle/Controller/EvenementController.php"
+    type:     annotation
+
+fos_message:
+    resource: "@FOSMessageBundle/Resources/config/routing.xml"
+    prefix: /message

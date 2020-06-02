@@ -1,0 +1,47 @@
+{% block content %}
+<h1 style=" position: relative; right: -30px">  liste des courses pour {{ liste[0].service.ids }} à partir de la date {{ service.dateI|date }} </h1> <br/>
+<br>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+
+
+        <th>Name Etudiant</th>
+        <th>specialite</th>
+        <th>Description</th>
+        <th>Date</th>
+        <th>type</th>
+
+
+    </tr>
+    </thead>
+    <tbody id="myTable">
+    {% for i in liste %}
+        <tr>
+
+
+            <td>
+                {{ u.iduser.nom }}
+            </td>
+            <td>
+                {{ u.iduser.specialite}}
+            </td>
+            <td>
+                {{ u.description}}
+            </td>
+            <td>
+                {{ u.date|date }}
+            </td>
+            <td>
+                {{ u.ida.typea}}
+            </td>
+
+
+
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<h1>Montant total : {{ inventaire.montant }}</h1>
+{% endblock content %}

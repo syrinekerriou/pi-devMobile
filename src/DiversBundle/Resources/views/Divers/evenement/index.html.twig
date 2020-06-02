@@ -1,0 +1,75 @@
+{% extends 'backoffice.html.twig' %}
+
+{% block content %}
+
+
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+
+                            <form action="{{ path('evenement_new') }}">
+
+                                <button class="btn btn-info btn-fill pull-right"  type="submit">Create a new evenement</button>
+                            </form>
+                            <form action="{{ path('evenement_tri') }}">
+                                <button class="btn btn-info btn-fill pull-right"  type="submit">Tri</button>
+                            </form>
+
+                            <form action="{{ path('evenement_tri') }}">
+                                <button class="btn btn-success btn-fill pull-right"  type="submit">Notifier What'sUp</button>
+                            </form>
+
+                        </div>
+
+                            <table >
+                                    <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Date</th>
+                                        <th>Description</th>
+                                        <th>Afficher</th>
+                                        <th>Modifier</th>
+                                        <th>Supprimer</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for evenement in evenements %}
+                                        <tr>
+                                            <td><a href="{{ path('evenement_show', { 'id': evenement.id }) }}">{{ evenement.id }}</a></td>
+                                            <td>{% if evenement.date %}{{ evenement.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                            <td>{{ evenement.description }}</td>
+                                            <td><a href="{{ path('evenement_show', { 'id': evenement.id }) }}">show</a></td>
+                                            <td><a href="{{ path('evenement_edit', { 'id': evenement.id }) }}">edit</a></td>
+                                            <td><a href="{{ path('evenement_delete', { 'id': evenement.id }) }}">Delete</a></td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

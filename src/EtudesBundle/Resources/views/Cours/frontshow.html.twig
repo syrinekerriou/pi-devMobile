@@ -1,0 +1,124 @@
+
+
+        <div class="limiter">
+        <div class="container">
+        <h2 class="section-title">Chercher un cours!!</h2>
+        <div class="container">
+        <form class="w-search" >
+            <div class="sidebar-search">
+
+                <div class="input-group custom-search-form">
+
+                    <input type="text" id="search" class="form-control pl-3" placeholder="Search here">
+                </div>
+                <!-- /input-group -->
+            </div>
+            <ul class="nav" id="side-menu">
+                <li>
+                    <a href="#"><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level" id="entitiesNav">
+                    </ul>
+                </li>
+            </ul>
+
+
+
+        </form>
+
+
+        <br>
+
+
+        <div class="centrer">
+            <select onChange="window.location.href=this.value">
+                <option></option>
+                <option value="{{ path('triCours',{'sort':'ASC'}) }}">Tier par titre (ascendant)</option>
+                <option value="{{ path('triCours',{'sort':'DESC'}) }}">Tier par titre (descendant)</option>
+            </select>
+
+        </div>
+
+
+            <div class="container">
+                <section class="ftco-section">
+                    <div class="container-fluid px-4">
+                        <div class="row ">
+                         {% for Cour in Cours %}
+                             iiiiiiiiii
+                            <div class="col-md-4 course ftco-animate" >
+
+                                <a>
+                                    <img class="img-fluid" src="{{ asset('Uploads/CoursImage/') }}{{ Cour.imageName }}" ></a>
+                                <div class="text pt-4" align="center">
+                                    <p class="meta d-flex">
+                                        <span><i class="icon-money"></i>{{ Cour.titreCours  }} </span>
+                                        <span><i class="icon-calendar mr-2"></i>{{ Cour.matiere }}</span>
+                                    <h3>   <a href="{{ asset('Uploads/CoursPDF/') }}{{ Cour.PDFName }}" class="btn btn btn-success"><span><i class="icon-next"></i>Voir le PDF</span></a></h3>
+
+                                    </p>
+
+                                </div>
+                            </div>
+                         {% endfor %}
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+
+        <div class="navigation text-center">
+            {{ knp_pagination_render(Cours) }}
+        </div>
+
+
+        <!-- jQuery is necessary -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+        <script type="text/javascript">
+            jQuery(document).ready(function() {
+                var searchRequest = null;
+                $("#search").keyup(function() {
+                    var minlength = 3;
+                    var that = this;
+                    var value = $(this).val();
+                    var entitySelector = $("#entitiesNav").html('');
+                    if (value.length >= minlength ) {
+                        if (searchRequest != null)
+                            searchRequest.abort();
+                        searchRequest = $.ajax({
+                            type: "GET",
+                            url: "{{ path('ajaxsearch') }}",
+                            data: {
+                                'q' : value
+                            },
+                            dataType: "text",
+                            success: function(msg){
+                                //we need to check if the value is the same
+                                if (value==$(that).val()) {
+                                    var result = JSON.parse(msg);
+                                    $.each(result, function(key, arr) {
+                                        $.each(arr, function(id, value) {
+                                            if (key == 'entities') {
+                                                if (id != 'error') {
+                                                    console.log(value);
+                                                    entitySelector.append('<li>' +
+                                                        'Titre:<a href="http://localhost/pi-dev/web/app_dev.php/frontshowcours/'+id+'">' + '<h5><b>  '+value[0]+  '</b></h5></a>'+'<a href="http://localhost/pi-dev/web/Uploads/CoursPDF/'+value[3]+'"> <img src="http://localhost/pi-dev/web/Uploads/CoursImage/'+value[4]+'" height="150" width="130"> </a> </li>')   ;
+                                                } else {
+                                                    entitySelector.append('<li class="errorLi">'+value+'</li>');
+                                                }
+                                            }
+                                        });
+                                    });
+                                }
+                            }
+                        });
+                    }
+                });
+            });
+        </script>
+
+
+
+
+
+

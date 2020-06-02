@@ -1,0 +1,17 @@
+reclamation_homepage:
+    path:     /reclaamation
+    defaults: { _controller: reclamationBundle:Default:index }
+
+reclamation_addReclamation:
+    path:     /ajout
+    defaults: { _controller: reclamationBundle:reclamation:addReclamation }
+    methods:  [GET, POST]
+
+reclamation_delete:
+    path:     /reclaamation/delete/{id}
+    defaults: { _controller: reclamationBundle:reclamation:delete }
+
+reclamation_affichage:
+    path:     /affichage
+    defaults: { _controller: reclamationBundle:reclamation:affichage }
+

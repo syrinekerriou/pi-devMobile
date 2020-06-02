@@ -1,0 +1,70 @@
+{% extends 'backoffice.html.twig' %}
+
+
+{% block content %}
+    <h1 style="text-align: center;">Gestion des cours</h1>
+
+
+
+
+
+                    <div>
+                        <h3 class="card-title"  ><font color="#00bfff">Liste des cours :</font></h3>
+
+                    </div>
+
+
+
+
+<div class="container">
+
+                                <table  >
+                                    <tr>
+                                        <th></th>
+                                        <th>Titre</th>
+                                        <th>Matiere</th>
+                                        <th>Durée</th>
+
+                                    </tr>
+
+
+                                    {%  for Cours in Cours %}
+                                        <tr>
+                                            <td>
+                                                <a href="{{ path('etudes') }}">
+                                                    <img class="img-fluid" src="{{ asset('Uploads/CoursImage/') }}{{ Cours.imageName }}"  height="500" width="300"></a>
+                                            </td>
+                                            <td>{{ Cours.titreCours }}</td>
+                                            <td>{{ Cours.matiere }}</td>
+                                            <td>{{ Cours.duree }}</td>
+                                            <td>
+
+                                                <a href="{{ path('modifiercours',{'id': Cours.id }) }}" >Modifier</a>
+
+                                            </td>
+                                            <td>
+                                                <a href="{{ path('supprimercours',{'qdt': Cours.id }) }}" >Supprimer</a>
+                                            </td>
+                                            <td>
+                                                <a href="{{ asset('Uploads/CoursPDF/') }}{{ Cours.PDFName }}" class="btn btn btn-success" />Voir le PDF</a>
+                                            </td>
+                                        </tr>
+
+                                    {% endfor %}
+
+                                </table>
+</div>
+
+
+
+
+            <h4>
+                <button class="nav-item"><a href="{{ path('ajoutcours') }}" >Ajouter</a></button>
+            </h4>
+
+
+
+
+
+
+{% endblock content %}

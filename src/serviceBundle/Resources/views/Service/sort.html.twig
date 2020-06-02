@@ -1,0 +1,130 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <section class="ftco-section ftco-no-pt ftco-no-pb contact-section">
+        <div class="container">
+            <div><h1>Demande Service: Attestation</h1></div>
+            <form class="w-search">
+                <div class="sidebar-search">
+
+                    <div class="input-group custom-search-form">
+
+                        <input type="text" id="search" class="form-control pl-3" placeholder="Search here">
+                    </div>
+                    <!-- /input-group -->
+                </div>
+                <ul class="nav" id="side-menu">
+                    <li>
+                        <a href="#"><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level" id="entitiesNav">
+                        </ul>
+                    </li>
+                </ul>
+
+
+
+            </form>
+            <script type="text/javascript" src="{{ asset('vendor/js/jquery.min.js') }}"></script>
+            <script>
+                jQuery(document).ready(function(){
+                    console.log("hhh")
+                    var searchRequest = null;
+                    $("#search").keyup(function() {
+                        var minlength = 1;
+                        var that = this;
+                        var value = $(this).val();
+                        console.log("hhh", $("#search").val())
+                        var entitySelector = $("#entitiesNav").html('');
+                        if (value.length >= minlength ) {
+                            if (searchRequest != null)
+                                searchRequest.abort();
+                            searchRequest = $.ajax({
+                                type: "GET",
+                                url: "{{ path('ajaxsearch') }}",
+                                data: {
+                                    'q' : value
+                                },
+                                dataType: "text",
+                                success: function(msg){
+                                    //we need to check if the value is the same
+                                    if (value===$(that).val()) {
+                                        var result = JSON.parse(msg);
+                                        $.each(result, function(key, arr) {
+                                            $.each(arr, function(id, value) {
+                                                if (key === 'service') {
+                                                    if (id !== 'error') {
+                                                        console.log(value[1]);
+                                                        entitySelector.append('<li>' +
+                                                            'Titre:<a href="http://localhost/pi-dev/web/app_dev.php/affichagess/'+id+'">' + '<h5><b>  '+value[0]      +  '</b></h5></a>')
+                                                        ;
+                                                    } else {
+                                                        entitySelector.append('<li class="errorLi">'+value+'</li>');
+                                                    }
+                                                }
+                                            });
+                                        });
+                                    }
+                                },
+                                error: (err) =>{
+                                    console.log("err", err)
+                                }
+                            });
+                        }
+                    });
+                });
+            </script>
+            <br>
+            <a class="btn btn-primary btn-lg"  href="{{ path('service_sort',{'sort':'ASC'}) }}">Sort By date ASCENDING</a>
+            <a class="btn btn-primary btn-lg" href="{{ path('service_sort',{'sort':'DESC'}) }}">Sort By date DESCENDING</a>
+
+            <div class="card-body table-full-width table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead>
+                    <th>Name Etudiant</th>
+                    <th>specialite</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>type</th>
+                    <th>langue</th>
+
+                    </thead>
+
+                    <tr>
+                        {% for u in service %}
+                        <td>
+                            {{ u.iduser.nom }}
+                        </td>
+                        <td>
+                            {{ u.iduser.specialite}}
+                        </td>
+                        <td>
+                            {{ u.description}}
+                        </td>
+                        <td>
+                            {{ u.date|date }}
+                        </td>
+                        <td>
+                            {{ u.ida.typea}}
+                        </td>
+                        <td>
+                            {{ u.ida.langue}}
+                        </td>
+
+                        <td>
+                            <a href="{{ path('service_deletes', { 'id': u.ids }) }}"><i class="fa fa-plus-circle"></i> delete demande</a>
+                        </td>
+                        <td>
+                            <a href="{{ path('service_deletes', { 'id': u.ids }) }}"><i class="fa fa-plus-circle"></i> repondre demande</a>
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        </div>
+        </div>
+
+    </section>
+
+{% endblock content %}

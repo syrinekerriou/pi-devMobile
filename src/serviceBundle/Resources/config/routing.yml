@@ -1,0 +1,34 @@
+service_homepage:
+    path:     /
+    defaults: { _controller: serviceBundle:Default:index }
+
+service_addService:
+    path:     /ajouts
+    defaults: { _controller: serviceBundle:service:addService }
+    methods:  [GET, POST]
+
+service_delete:
+    path:     /delete/{id}
+    defaults: { _controller: serviceBundle:service:delete }
+
+service_deletes:
+    path:     /deletes/{id}
+    defaults: { _controller: serviceBundle:service:deletes }
+
+service_affichage:
+    path:     /affichages
+    defaults: { _controller: serviceBundle:service:affichage }
+
+service_affichagee:
+    path:     /affichagess
+    defaults: { _controller: serviceBundle:service:affichagee }
+ajaxsearch:
+    path:     /recherche
+    defaults: { _controller: serviceBundle:service:search }
+service_sort:
+    path:     /sort/{sort}
+    defaults: { _controller: serviceBundle:service:sort }
+    methods:  GET
+service_pdf:
+    path: /pdf
+    defaults: { _controller: serviceBundle:service:pdf }

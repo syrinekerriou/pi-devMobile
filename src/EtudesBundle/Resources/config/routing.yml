@@ -1,0 +1,52 @@
+etudes:
+    path:     /
+    defaults: { _controller: EtudesBundle:Default:etudes }
+cours:
+    path:     /cours
+    defaults: { _controller: EtudesBundle:Default:cours }
+
+
+affichagecoursadmin:
+    path:     /affichagecoursadmin
+    defaults: { _controller: EtudesBundle:Cours:AffichageAdmin }
+
+affichageformationadmin:
+    path:     /affichageformationadmin
+    defaults: { _controller: EtudesBundle:Formation:AffichageFormationAdmin }
+
+ajoutcours:
+    path:     /ajoutcours
+    defaults: { _controller: EtudesBundle:Cours:Ajout }
+
+ajoutformation:
+    path:     /ajoutformation
+    defaults: { _controller: EtudesBundle:Formation:Ajout }
+
+supprimercours:
+    path:     /supprimercours/{qdt}
+    defaults: { _controller: EtudesBundle:Cours:SupprimerCours }
+
+supprimerformation:
+    path:     /supprimerformation/{qdt}
+    defaults: { _controller: EtudesBundle:Formation:Supprimerformation }
+
+modifiercours:
+    path:     /affichagecoursadmin/modifiercours/{id}
+    defaults: { _controller: EtudesBundle:Cours:ModifierCours }
+
+modifierformation:
+    path:     /affichageformationadmin/modifierformation/{id}
+    defaults: { _controller: EtudesBundle:Formation:ModifierFormation }
+
+frontshowcours:
+    path:     /frontshowcours
+    defaults: { _controller: EtudesBundle:Cours:frontshowcours }
+
+ajaxsearch:
+    path:     /recherchercours
+    defaults: { _controller: EtudesBundle:Cours:search }
+
+triCours:
+    path:     /triCours/{sort}
+    defaults: { _controller: EtudesBundle:Cours:sort }
+    methods:  GET

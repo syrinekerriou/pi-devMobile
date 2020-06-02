@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title></title>
+        <!--===============================================================================================-->
+        <link rel="icon" type="image/png" href="{{ asset('acss/images/icons/favicon.ico') }}"/>
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ asset('acss/vendor/bootstrap/css/bootstrap.min.css') }}">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ asset('acss/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ asset('acss/vendor/animate/animate.css') }}">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ asset('accs/vendor/select2/select2.min.css') }}">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ asset('acss/vendor/perfect-scrollbar/perfect-scrollbar.css') }}">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ asset('acss/css/util.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('acss/css/main.css') }}">
+        <!--===============================================================================================-->
+    </head>
+
+    <body>
+    <div class="limiter">
+        <div class="container">
+            <div class="wrap-table100">
+                <div class="table100">
+                    <br>
+                    <br>
+                    <br>
+                    <a class="btn btn-primary btn-lg"  href="{{ path('Blog_sort',{'sort':'ASC'}) }}">Sort By Sujet ASCENDING</a>
+                    <a class="btn btn-primary btn-lg" href="{{ path('Blog_sort',{'sort':'DESC'}) }}">Sort By Sujet DESCENDING</a>
+                    <table>
+                        <thead>
+                        <br>
+                        <br>
+                        <br>
+                        <tr class="table table-hover table-striped">
+
+                            <th class="column1">Sujet</th>
+                            <th class="column2">Description</th>
+                            <th class="column3">Image</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        {% for blog in blog %}
+                            <tr>
+
+                                <td>{{ blog.sujet }}</td>
+                                <td>{{ blog.description }}</td>
+                                <td>
+                                <img src="{{ asset('images/')~blog.type }}" width="50">
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <!--===============================================================================================-->
+    <script src="{{ asset('acss/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+    <!--===============================================================================================-->
+    <script src="{{ asset('acss/vendor/bootstrap/js/popper.js') }}"></script>
+    <script src="{{ asset('acss/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <!--===============================================================================================-->
+    <script src="{{ asset('acss/vendor/select2/select2.min.js') }}"></script>
+    <!--===============================================================================================-->
+    <script src="{{ asset('acss/js/main.js') }}"></script>
+    </body>
+
+    </html>
+{% endblock content %}

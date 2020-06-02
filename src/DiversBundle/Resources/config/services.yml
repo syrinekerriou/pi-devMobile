@@ -1,0 +1,4 @@
+services:
+#    divers.example:
+#        class: DiversBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

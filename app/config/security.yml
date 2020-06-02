@@ -1,0 +1,35 @@
+# app/config/security.yml
+security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: sha512
+
+    role_hierarchy:
+        ROLE_ETUDIANT:    ROLE_USER
+        ROLE_CLIENT:      ROLE_USER
+        ROLE_SUPER_ADMIN: ROLE_SUPER_ADMIN
+
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username
+
+    firewalls:
+        main:
+            pattern: ^/
+            user_checker: security.user_checker
+            form_login:
+                provider: fos_userbundle
+                csrf_token_generator: security.csrf.token_manager
+                always_use_default_target_path: false
+                default_target_path: /redirect
+            logout:
+                target: /login
+            anonymous:    true
+            json_login:
+                check_path: /login
+    access_control:
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/backoffice, role: ROLE_SUPER_ADMIN }
+        - { path: ^/frontoffice/, role: ROLE_CLIENT }
+        - { path: ^/frontoffice/, role: ROLE_ETUDIANT }

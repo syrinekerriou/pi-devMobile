@@ -1,0 +1,35 @@
+{% extends 'backoffice.html.twig' %}
+
+{% block title %}EtudesBundle:index{% endblock %}
+
+{% block content %}
+    <h1>Modification d'une formation</h1>
+    <div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card ">
+                    <div class="card-header ">
+                        <h4 class="card-title">Formulaire de modification :</h4>
+                    </div>
+                    {{ form_start(Form) }}
+                    <div>
+                        <select>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+
+                    </div>
+                    <button type="submit">Modifier</button>
+
+
+                    {{ form_end(Form) }}
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock content %}

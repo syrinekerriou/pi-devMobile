@@ -1,0 +1,43 @@
+{% extends 'backoffice.html.twig' %}
+
+{% block content %}
+
+
+    <section class="ftco-section ftco-no-pt ftco-no-pb contact-section">
+        <div class="container">
+            <div class="row d-flex align-items-stretch no-gutters">
+                <div class="col-md-6 p-4 p-md-5 order-md-last bg-light">
+                    <center>
+                    {{ form_start(form) }}
+                    <div><h1>Confiramation</h1></div>
+                    <div>
+                        Id:
+                        {{ form_widget(form.ida,{'attr': {'class': "ckeditor",'placeholder': "veuillez saisir votre demande",'required':"true" ,'cols':'30','rows':'10'}}) }}
+
+                    </div>
+                    <div class="form-group" >
+
+                        Description:
+                        {{ form_widget(form.description,{'attr': {'class': "ckeditor",'placeholder': "veuillez saisir votre demande",'required':"true" ,'cols':'30','rows':'10'}}) }}
+
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="ajouter" class="btn btn-primary py-3 px-5">
+                    </div>
+
+
+
+                    {{ form_end(form) }}
+                    </center>
+                </div>
+
+                <div class="col-md-6 d-flex align-items-stretch">
+                    <img src="{{ asset('bundles/images/a.png') }}" style="width: 450px" />
+                </div>
+            </div>
+        </div>
+        </div>
+
+    </section>
+{% endblock content %}

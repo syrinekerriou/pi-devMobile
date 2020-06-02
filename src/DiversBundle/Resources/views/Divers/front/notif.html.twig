@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('../../../../../../../Users/farou/Desktop/fox/images/bg_1.jpg');">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-center">
+                <div class="col-md-9 ftco-animate text-center">
+                    <h1 class="mb-2 bread">Courses</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="../../../../../../../Users/farou/Desktop/fox/index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Courses <i class="ion-ios-arrow-forward"></i></span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section">
+        <div class="container-fluid px-4">
+            <div class="row">
+
+
+
+
+
+
+
+                {%  for offre in offre %}
+
+
+                    <div class="col-md-3 course ftco-animate">
+                        <img  src="{{ asset('/pi-dev/web/uploads/' ~ offre.photo ) }}">
+                        <div class="text pt-4">
+                            <p class="meta d-flex">
+                                <span><i class="icon-user mr-2"></i>{{ offre.dateDebut|date("m/d/Y")  }}</span>
+                                <span><i class="icon-table mr-2"></i>{{ offre.dateFin|date("m/d/Y")  }}</span>
+
+                            </p>
+                            <h3><a href="#">{{ offre.prix }} DT</a></h3>
+                            <p>{{ offre.description }}</p>
+                            <form action="{{ path('Buyfront')}}">
+                                <button class="btn btn-info btn-fill pull-right"  type="submit">buy now</button>
+                            </form>
+
+                        </div>
+                    </div>
+
+
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

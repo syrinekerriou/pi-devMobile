@@ -1,0 +1,8 @@
+attestation_homepage:
+    path:     /
+    defaults: { _controller: attestationBundle:Default:index }
+
+attestation_addat:
+    path:     /ajout
+    defaults: { _controller: attestationBundle:attestation:addat}
+    methods:  [GET, POST]
